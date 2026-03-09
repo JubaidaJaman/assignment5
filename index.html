@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Issues Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="login-container">
+  <img src="images/github-logo.png" class="logo">
+  <h2>GitHub Issues Tracker</h2>
+  <p class="subtitle">Sign in to manage your issues</p>
+  <input id="username" placeholder="Enter Username">
+  <input id="password" type="password" placeholder="Enter Password">
+  <button onclick="login()">Sign In</button>
+  <div class="demo">
+    <p>Username: admin</p>
+    <p>Password: admin123</p>
+  </div>
+</div>
+
+<!-- MAIN PAGE  -->
+<div id="mainPage" class="hidden">
+
+  <!-- NAVBAR  -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="images/github-logo.png">
+      <h3>GitHub Issues Tracker</h3>
+    </div>
+  </nav>
+
+  <!-- TABS + SEARCH  -->
+  <div class="tabs-container">
+    <div>
+      <button class="tab all active" onclick="changeTab('all',this)">All</button>
+      <button class="tab open" onclick="changeTab('open',this)">Open</button>
+      <button class="tab closed" onclick="changeTab('closed',this)">Closed</button>
+    </div>
+    <div class="search-box">
+      <input id="searchInput" placeholder="Search issues...">
+      <button onclick="searchIssue()">Search</button>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div class="issue-header">
+    <div class="issue-left">
+      <img src="images/Aperture.png">
+      <div>
+        <h3 id="issueCount">Issues</h3>
+        <p>Track and manage your project issues</p>
+      </div>
+    </div>
+    <div class="issue-right">
+      <span class="dot open"></span> Open
+      <span class="dot closed"></span> Closed
+    </div>
+  </div>
+
+  <!-- ISSUE GRID -->
+  <div id="issuesContainer" class="issues-grid"></div>
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-card">
+    <h2 id="modalTitle"></h2>
+    <div class="modal-status">
+      <span id="modalStatus"></span>
+      <span id="modalDate"></span>
+    </div>
+    <div class="modal-labels">
+      <span class="label bug">BUG</span>
+      <span class="label help">HELP WANTED</span>
+    </div>
+    <p id="modalDesc"></p>
+
+    <div class="modal-bottom">
+      <div>
+        <p class="small-title">Assignee</p>
+        <p id="modalAuthor"></p>
+      </div>
+      <div>
+        <p class="small-title">Priority</p>
+        <span id="modalPriority" class="priority high"></span>
+      </div>
+    </div>
+
+    <button class="close-btn" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
